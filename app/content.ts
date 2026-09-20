@@ -5,7 +5,7 @@ export const contact = {
 };
 
 export const identity = [
-  { label: "Nama Perusahaan", value: "N-1 Labs" },
+  { label: "Nama Perusahaan", value: "N⁻¹ Labs" },
   { label: "Didirikan", value: "2 September 2026" },
   { label: "Lokasi", value: "Semarang, Jawa Tengah, Indonesia" },
   { label: "Industri", value: "Artificial Intelligence & Technology" },
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     problem:
       "Layanan pelanggan konvensional terbatas oleh jam operasional dan kapasitas human agent, sehingga respons terhadap pertanyaan berulang sering lambat dan tidak konsisten.",
     solution:
-      "N-1 Labs mengembangkan AI Agent yang mampu menjawab pelanggan secara otomatis dengan memanfaatkan knowledge perusahaan, memahami konteks percakapan, serta menjawab pertanyaan umum (FAQ) sebelum diteruskan ke human agent bila diperlukan.",
+      "N⁻¹ Labs mengembangkan AI Agent yang mampu menjawab pelanggan secara otomatis dengan memanfaatkan knowledge perusahaan, memahami konteks percakapan, serta menjawab pertanyaan umum (FAQ) sebelum diteruskan ke human agent bila diperlukan.",
     function: [
       "Menjawab pelanggan secara otomatis dan kontekstual",
       "Memanfaatkan knowledge base perusahaan",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
       "Layanan tersedia tanpa henti, kapan pun dibutuhkan",
     ],
     learned:
-      "Proyek ini menjadi fondasi awal kemampuan N-1 Labs dalam merancang AI Agent yang memahami konteks percakapan dan terintegrasi dengan sistem knowledge — kapabilitas yang menjadi dasar pengembangan AI Agent pada proyek-proyek berikutnya.",
+      "Proyek ini menjadi fondasi awal kemampuan N⁻¹ Labs dalam merancang AI Agent yang memahami konteks percakapan dan terintegrasi dengan sistem knowledge — kapabilitas yang menjadi dasar pengembangan AI Agent pada proyek-proyek berikutnya.",
   },
   {
     num: "02",
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     problem:
       "Pengelolaan voucher secara manual rentan terhadap duplikasi klaim, sulit dilacak, dan menyulitkan proses validasi saat digunakan dalam kampanye berskala besar.",
     solution:
-      "N-1 Labs membangun sistem voucher digital yang menangani seluruh siklus hidup voucher secara terintegrasi — mulai dari pembuatan, distribusi, klaim oleh pengguna, validasi, hingga redemption dan pelacakan transaksi.",
+      "N⁻¹ Labs membangun sistem voucher digital yang menangani seluruh siklus hidup voucher secara terintegrasi — mulai dari pembuatan, distribusi, klaim oleh pengguna, validasi, hingga redemption dan pelacakan transaksi.",
     function: [
       "Mendukung campaign dan promotion",
       "Mendukung customer acquisition",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
       "Data transaksi tercatat dan terlacak dengan jelas",
     ],
     learned:
-      "Proyek ini memperkuat kemampuan N-1 Labs dalam merancang sistem transaksional yang andal dan aman — dasar penting bagi sistem bisnis berskala yang dikembangkan pada proyek-proyek berikutnya.",
+      "Proyek ini memperkuat kemampuan N⁻¹ Labs dalam merancang sistem transaksional yang andal dan aman — dasar penting bagi sistem bisnis berskala yang dikembangkan pada proyek-proyek berikutnya.",
   },
   {
     num: "03",
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     problem:
       "Layanan pelanggan berbasis WhatsApp umumnya dikelola secara manual, sehingga sulit diintegrasikan dengan AI Agent, riwayat percakapan, dan sistem bisnis secara konsisten.",
     solution:
-      "N-1 Labs membangun environment WhatsApp yang menjadi infrastruktur komunikasi bagi AI Customer Service.",
+      "N⁻¹ Labs membangun environment WhatsApp yang menjadi infrastruktur komunikasi bagi AI Customer Service.",
     flow: "Customer → WhatsApp → WhatsApp API → AI Agent → Knowledge / Business System → Response",
     function: [
       "Conversation dan contact management",
@@ -196,7 +196,7 @@ export const projects: Project[] = [
       "Percakapan pelanggan tercatat secara konsisten",
     ],
     learned:
-      "Proyek ini memperkuat kemampuan N-1 Labs dalam membangun AI communication infrastructure — menjadikan WhatsApp bagian dari sistem AI Customer Service yang utuh, bukan sekadar saluran pesan.",
+      "Proyek ini memperkuat kemampuan N⁻¹ Labs dalam membangun AI communication infrastructure — menjadikan WhatsApp bagian dari sistem AI Customer Service yang utuh, bukan sekadar saluran pesan.",
   },
   {
     num: "04",
@@ -205,7 +205,7 @@ export const projects: Project[] = [
     problem:
       "Bisnis yang ingin berjualan secara digital membutuhkan sistem commerce yang menyatukan katalog produk, transaksi, pembayaran, dan pengelolaan operasional dalam satu platform yang andal.",
     solution:
-      "N-1 Labs membangun sistem e-commerce end-to-end yang mencakup seluruh alur belanja — dari katalog produk hingga pengelolaan admin dan analitik bisnis.",
+      "N⁻¹ Labs membangun sistem e-commerce end-to-end yang mencakup seluruh alur belanja — dari katalog produk hingga pengelolaan admin dan analitik bisnis.",
     function: [
       "Product catalog dan customer management",
       "Cart dan checkout",
@@ -218,16 +218,16 @@ export const projects: Project[] = [
       "Operasional toko dapat dikelola secara terpusat",
     ],
     learned:
-      "Proyek ini menegaskan kemampuan N-1 Labs dalam membangun sistem commerce secara utuh — dari frontend, backend, hingga integrasi pembayaran — sebagai bagian dari kapabilitas software engineering inti perusahaan.",
+      "Proyek ini menegaskan kemampuan N⁻¹ Labs dalam membangun sistem commerce secara utuh — dari frontend, backend, hingga integrasi pembayaran — sebagai bagian dari kapabilitas software engineering inti perusahaan.",
   },
   {
     num: "05",
     title: "Own a Dungeon",
-    position: "Eksplorasi N-1 Labs dalam interactive digital products dan game technology.",
+    position: "Eksplorasi N⁻¹ Labs dalam interactive digital products dan game technology.",
     problem:
-      "N-1 Labs ingin mengeksplorasi kapabilitas engineering di luar sistem bisnis konvensional, melalui produk interaktif yang menuntut real-time interaction dan desain sistem yang kompleks.",
+      "N⁻¹ Labs ingin mengeksplorasi kapabilitas engineering di luar sistem bisnis konvensional, melalui produk interaktif yang menuntut real-time interaction dan desain sistem yang kompleks.",
     solution:
-      "Own a Dungeon adalah produk game digital yang dikembangkan N-1 Labs, mencakup game mechanics, sistem dungeon, interaksi pemain, digital assets/environment, antarmuka pengguna, backend logic, hingga pengelolaan data permainan.",
+      "Own a Dungeon adalah produk game digital yang dikembangkan N⁻¹ Labs, mencakup game mechanics, sistem dungeon, interaksi pemain, digital assets/environment, antarmuka pengguna, backend logic, hingga pengelolaan data permainan.",
     function: [
       "Game mechanics dan sistem dungeon",
       "Interaksi pemain secara real-time",
@@ -239,7 +239,7 @@ export const projects: Project[] = [
       "Menguji real-time interaction dan system design pada skala berbeda",
     ],
     learned:
-      "Meski berbeda kategori dari proyek bisnis lainnya, proyek ini tetap relevan dengan kapabilitas inti N-1 Labs: system design, backend engineering, real-time interaction, dan digital product development — kemampuan yang juga dibutuhkan dalam membangun sistem AI yang responsif dan interaktif.",
+      "Meski berbeda kategori dari proyek bisnis lainnya, proyek ini tetap relevan dengan kapabilitas inti N⁻¹ Labs: system design, backend engineering, real-time interaction, dan digital product development — kemampuan yang juga dibutuhkan dalam membangun sistem AI yang responsif dan interaktif.",
   },
   {
     num: "06",
@@ -248,7 +248,7 @@ export const projects: Project[] = [
     problem:
       "Operasional swimming club yang melibatkan banyak entitas — anggota, pelatih, kelas, dan jadwal — sulit dikelola tanpa satu sistem data yang terpusat.",
     solution:
-      "N-1 Labs mengembangkan sistem ERP yang mencakup member management, student database, coach management, class management, penjadwalan, absensi, administrasi, manajemen operasional, hingga pelaporan — seluruhnya dalam satu sistem data yang terpusat.",
+      "N⁻¹ Labs mengembangkan sistem ERP yang mencakup member management, student database, coach management, class management, penjadwalan, absensi, administrasi, manajemen operasional, hingga pelaporan — seluruhnya dalam satu sistem data yang terpusat.",
     function: [
       "Member dan student database management",
       "Coach dan class management",
@@ -260,7 +260,7 @@ export const projects: Project[] = [
       "Struktur data relasional yang matang untuk skala enterprise",
     ],
     learned:
-      "Proyek ini memperkuat kemampuan N-1 Labs dalam merancang sistem manajemen operasional multi-entitas yang membutuhkan struktur data relasional yang matang — kapabilitas penting bagi sistem enterprise ke depannya.",
+      "Proyek ini memperkuat kemampuan N⁻¹ Labs dalam merancang sistem manajemen operasional multi-entitas yang membutuhkan struktur data relasional yang matang — kapabilitas penting bagi sistem enterprise ke depannya.",
   },
 ];
 
@@ -345,9 +345,9 @@ export const roadmapPhases = [
 ];
 
 export const positioningCards = [
-  { title: "Corporate", body: "N-1 Labs adalah mitra teknologi yang membangun sistem AI, automation, dan software untuk mendukung pertumbuhan bisnis secara berkelanjutan." },
-  { title: "Investor", body: "N-1 Labs membangun kapabilitas secara bertahap — dari software engineering menuju AI infrastructure — dengan arah jangka panjang pada teknologi AI strategis Indonesia." },
-  { title: "Government", body: "N-1 Labs adalah perusahaan teknologi Indonesia dengan visi mendukung kemandirian teknologi AI nasional, termasuk potensi kontribusi terhadap kebutuhan strategis pemerintahan." },
-  { title: "Technology", body: "N-1 Labs merancang AI Agent, sistem orkestrasi, dan infrastruktur data sebagai fondasi menuju kapabilitas AI yang lebih dalam, termasuk riset model." },
-  { title: "International", body: "N-1 Labs is an Indonesian AI technology company building intelligent systems today, with a long-term ambition to contribute to Indonesia's sovereign AI capability." },
+  { title: "Corporate", body: "N⁻¹ Labs adalah mitra teknologi yang membangun sistem AI, automation, dan software untuk mendukung pertumbuhan bisnis secara berkelanjutan." },
+  { title: "Investor", body: "N⁻¹ Labs membangun kapabilitas secara bertahap — dari software engineering menuju AI infrastructure — dengan arah jangka panjang pada teknologi AI strategis Indonesia." },
+  { title: "Government", body: "N⁻¹ Labs adalah perusahaan teknologi Indonesia dengan visi mendukung kemandirian teknologi AI nasional, termasuk potensi kontribusi terhadap kebutuhan strategis pemerintahan." },
+  { title: "Technology", body: "N⁻¹ Labs merancang AI Agent, sistem orkestrasi, dan infrastruktur data sebagai fondasi menuju kapabilitas AI yang lebih dalam, termasuk riset model." },
+  { title: "International", body: "N⁻¹ Labs is an Indonesian AI technology company building intelligent systems today, with a long-term ambition to contribute to Indonesia's sovereign AI capability." },
 ];

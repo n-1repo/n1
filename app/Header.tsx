@@ -37,7 +37,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container">
         <a className="brand" href="#top">
-          <Image src={withBasePath("/logo.png")} alt="N-1 Labs" width={34} height={34} priority />
+          <Image src={withBasePath("/logo.png")} alt="N⁻¹ Labs" width={34} height={34} priority />
           N⁻¹&nbsp;LABS
         </a>
 

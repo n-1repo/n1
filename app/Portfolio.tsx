@@ -78,7 +78,7 @@ export default function Portfolio({ projects }: { projects: Project[] }) {
                   </div>
                 </div>
 
-                <div className="subhead">What N-1 Labs Learned / Built</div>
+                <div className="subhead">What N⁻¹ Labs Learned / Built</div>
                 <p style={{ fontSize: 13.5, margin: 0 }}>{project.learned}</p>
               </div>
             </div>

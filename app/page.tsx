@@ -84,13 +84,13 @@ export default function Home() {
             <span className="progress-track">
               <span className="progress-fill" />
             </span>
-            <span className="progress-label">N-1 · Always One Short</span>
+            <span className="progress-label">N⁻¹ · Always One Short</span>
           </div>
           <h1>
             Building Indonesia&apos;s Own <span>AI Technology</span> Capability
           </h1>
           <p>
-            N-1 Labs adalah perusahaan teknologi AI asal Indonesia yang membangun AI Agent, software
+            N⁻¹ Labs adalah perusahaan teknologi AI asal Indonesia yang membangun AI Agent, software
             systems, automation, dan digital products — dengan arah jangka panjang menjadi AI technology
             company yang membangun teknologinya sendiri.
           </p>
@@ -129,21 +129,21 @@ export default function Home() {
       <section id="philosophy">
         <div className="container">
           <div className="kicker">00 · Filosofi</div>
-          <h2 className="section-title">N-1: Selalu Satu Langkah Sebelum Selesai</h2>
+          <h2 className="section-title">N⁻¹: Selalu Satu Langkah Sebelum Selesai</h2>
           <div className="divider" />
 
           <p className="section-lead" style={{ maxWidth: 720 }}>
             Nama kami bukan kebetulan. Dalam matematika, N melambangkan bilangan penuh — hasil akhir,
-            versi sempurna, titik selesai. Kami menamai diri <b>N-1</b> karena percaya titik itu tidak
+            versi sempurna, titik selesai. Kami menamai diri <b>N⁻¹</b> karena percaya titik itu tidak
             pernah benar-benar sampai: selalu ada satu hal yang kurang, satu hal yang bisa dibangun,
             diperbaiki, atau dikembangkan lagi.
           </p>
 
           <div className="manifesto">
             <p className="eq">
-              <span className="no">N-1 = Selesai.</span>
+              <span className="no">N⁻¹ = Selesai.</span>
               <br />
-              <span className="yes">N-1 = Terus Bergerak.</span>
+              <span className="yes">N⁻¹ = Terus Bergerak.</span>
             </p>
           </div>
 
@@ -159,7 +159,7 @@ export default function Home() {
             <span className="arrow">— satu langkah yang selalu menunggu di depan</span>
           </div>
           <p>
-            Bagi kami, kedua penanda itu bukan sekadar label kategori — itu adalah N dan N-1: apa yang
+            Bagi kami, kedua penanda itu bukan sekadar label kategori — itu adalah N dan N⁻¹: apa yang
             telah tercapai, dan satu hal yang sengaja kami biarkan belum selesai, karena di situlah kerja
             berikutnya dimulai.
           </p>
@@ -193,7 +193,7 @@ export default function Home() {
           </div>
 
           <p className="philosophy-closing">
-            Begitulah cara kami bekerja: N-1 hari ini, mendekati N esok — tanpa pernah benar-benar
+            Begitulah cara kami bekerja: N⁻¹ hari ini, mendekati N esok — tanpa pernah benar-benar
             sampai.
           </p>
         </div>
@@ -202,23 +202,23 @@ export default function Home() {
       <section id="about">
         <div className="container">
           <div className="kicker">01 · Tentang Kami</div>
-          <h2 className="section-title">About N-1 Labs</h2>
+          <h2 className="section-title">About N⁻¹ Labs</h2>
           <div className="divider" />
 
           <p className="section-lead" style={{ maxWidth: 720 }}>
-            N-1 Labs adalah perusahaan teknologi asal Semarang, Jawa Tengah, yang berfokus pada
+            N⁻¹ Labs adalah perusahaan teknologi asal Semarang, Jawa Tengah, yang berfokus pada
             pengembangan Artificial Intelligence, AI Agent, software systems, automation, digital
             products, dan teknologi komputasi.
           </p>
           <p style={{ maxWidth: 720 }}>
-            Didirikan pada 2 September 2026, N-1 Labs hadir bukan sebagai software house biasa,
+            Didirikan pada 2 September 2026, N⁻¹ Labs hadir bukan sebagai software house biasa,
             melainkan sebagai perusahaan yang membangun kapabilitasnya secara bertahap — dimulai dari
             software engineering, menuju sistem bisnis dan automation, hingga akhirnya pada pengembangan
-            AI Agent dan AI Infrastructure. Setiap proyek yang dikerjakan N-1 Labs dirancang untuk
+            AI Agent dan AI Infrastructure. Setiap proyek yang dikerjakan N⁻¹ Labs dirancang untuk
             memperkuat fondasi teknis menuju arah tersebut.
           </p>
           <p style={{ maxWidth: 720 }}>
-            Dalam jangka panjang, N-1 Labs memiliki tujuan untuk berkembang menjadi{" "}
+            Dalam jangka panjang, N⁻¹ Labs memiliki tujuan untuk berkembang menjadi{" "}
             <b>AI technology company</b> yang mampu membangun teknologi AI-nya sendiri — termasuk
             kontribusi terhadap kemampuan Indonesia dalam mengembangkan Large Language Model (LLM)
             secara mandiri.
@@ -248,7 +248,7 @@ export default function Home() {
           <h2 className="section-title">Mission</h2>
           <div className="divider" />
           <p className="section-lead">
-            Misi N-1 Labs disusun berdasarkan tujuh prinsip kerja: Develop, Integrate, Automate,
+            Misi N⁻¹ Labs disusun berdasarkan tujuh prinsip kerja: Develop, Integrate, Automate,
             Research, Build, Scale, dan Protect.
           </p>
 
@@ -273,7 +273,7 @@ export default function Home() {
           <h2 className="section-title">Technology Focus</h2>
           <div className="divider" />
           <p className="section-lead">
-            Kapabilitas N-1 Labs dikelompokkan ke dalam enam domain teknologi, dari sistem yang telah
+            Kapabilitas N⁻¹ Labs dikelompokkan ke dalam enam domain teknologi, dari sistem yang telah
             dibangun hingga arah riset masa depan.
           </p>
 
@@ -302,7 +302,7 @@ export default function Home() {
           <h2 className="section-title">What We Build</h2>
           <div className="divider" />
           <p className="section-lead">
-            N-1 Labs membangun sistem yang digunakan secara nyata — bukan sekadar prototipe atau konsep.
+            N⁻¹ Labs membangun sistem yang digunakan secara nyata — bukan sekadar prototipe atau konsep.
             Setiap produk dirancang untuk menjadi bagian dari infrastruktur bisnis penggunanya.
           </p>
 
@@ -334,9 +334,9 @@ export default function Home() {
           <h2 className="section-title">Project Portfolio</h2>
           <div className="divider" />
           <p className="section-lead">
-            Enam proyek berikut menggambarkan perjalanan N-1 Labs dalam membangun kapabilitas — dari
+            Enam proyek berikut menggambarkan perjalanan N⁻¹ Labs dalam membangun kapabilitas — dari
             software engineering, sistem bisnis, automation, hingga AI Agent. Setiap proyek dijelaskan
-            berdasarkan permasalahan, solusi, fungsi, dampak, dan hal yang dipelajari N-1 Labs.
+            berdasarkan permasalahan, solusi, fungsi, dampak, dan hal yang dipelajari N⁻¹ Labs.
           </p>
           <span className="tag existing">Existing Capability</span>
 
@@ -350,7 +350,7 @@ export default function Home() {
           <h2 className="section-title">Technology Journey</h2>
           <div className="divider" />
           <p className="section-lead">
-            Proyek-proyek yang telah dikerjakan N-1 Labs bukan kumpulan proyek yang berdiri sendiri,
+            Proyek-proyek yang telah dikerjakan N⁻¹ Labs bukan kumpulan proyek yang berdiri sendiri,
             melainkan tahapan yang membangun kapabilitas perusahaan secara bertahap menuju teknologi AI
             berskala nasional.
           </p>
@@ -373,7 +373,7 @@ export default function Home() {
             ))}
           </div>
           <p className="philosophy-closing">
-            Delapan tahap ini sengaja berhenti di sebuah Vision, bukan garis akhir — karena bagi N-1,
+            Delapan tahap ini sengaja berhenti di sebuah Vision, bukan garis akhir — karena bagi N⁻¹,
             tidak ada garis akhir.
           </p>
         </div>
@@ -394,7 +394,7 @@ export default function Home() {
           </div>
 
           <p>
-            Visi ini menjadi arah jangka panjang N-1 Labs, yang secara bertahap dijabarkan ke dalam
+            Visi ini menjadi arah jangka panjang N⁻¹ Labs, yang secara bertahap dijabarkan ke dalam
             beberapa fokus pengembangan:
           </p>
           <ul className="clean">
@@ -413,7 +413,7 @@ export default function Home() {
             ))}
           </div>
           <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 12 }}>
-            N-1 Labs tidak memposisikan dirinya sebagai penyedia chatbot maupun software development
+            N⁻¹ Labs tidak memposisikan dirinya sebagai penyedia chatbot maupun software development
             semata, melainkan sebagai perusahaan yang membangun jenjang kapabilitas menuju teknologi AI
             berskala nasional.
           </p>
@@ -435,7 +435,7 @@ export default function Home() {
           </div>
 
           <p>
-            N-1 Labs saat ini fokus membangun AI Agent dan sistem berbasis AI untuk kebutuhan bisnis.
+            N⁻¹ Labs saat ini fokus membangun AI Agent dan sistem berbasis AI untuk kebutuhan bisnis.
             Namun, arah jangka panjang perusahaan mengarah pada kontribusi terhadap kapabilitas Indonesia
             dalam membangun teknologi AI-nya sendiri — termasuk Large Language Model (LLM). Tahapan
             konseptualnya dijelaskan lebih detail di bagian berikut.
@@ -451,12 +451,12 @@ export default function Home() {
           <span className="tag vision">Future Vision / Aspiration</span>
 
           <p style={{ marginTop: 16 }}>
-            Salah satu tujuan jangka panjang N-1 Labs adalah berkontribusi terhadap kemampuan Indonesia
+            Salah satu tujuan jangka panjang N⁻¹ Labs adalah berkontribusi terhadap kemampuan Indonesia
             dalam membangun Large Language Model (LLM) sendiri — sebagai bagian dari kedaulatan teknologi
             bangsa di bidang kecerdasan buatan.
           </p>
           <p>
-            <b>N-1 Labs saat ini belum memiliki LLM sendiri.</b> Kapabilitas yang dimiliki saat ini
+            <b>N⁻¹ Labs saat ini belum memiliki LLM sendiri.</b> Kapabilitas yang dimiliki saat ini
             berada pada tahap membangun AI Agent dan aplikasi berbasis AI. Pengembangan menuju model
             engineering dan foundation model merupakan arah jangka panjang yang akan dibangun secara
             bertahap.
@@ -489,7 +489,7 @@ export default function Home() {
           <span className="tag vision">Future Vision / Aspiration</span>
 
           <p style={{ marginTop: 16 }}>
-            N-1 Labs memiliki aspirasi jangka panjang untuk bekerja sama dengan institusi pemerintah,
+            N⁻¹ Labs memiliki aspirasi jangka panjang untuk bekerja sama dengan institusi pemerintah,
             pertahanan, dan militer Indonesia dalam mengembangkan teknologi AI yang dapat mendukung
             kebutuhan strategis nasional, di antaranya:
           </p>
@@ -510,7 +510,7 @@ export default function Home() {
           </div>
 
           <p style={{ fontSize: 12.5, color: "var(--muted)", marginTop: 12 }}>
-            <b style={{ color: "var(--ink)" }}>Catatan penting:</b> N-1 Labs bukan perusahaan militer, dan
+            <b style={{ color: "var(--ink)" }}>Catatan penting:</b> N⁻¹ Labs bukan perusahaan militer, dan
             saat ini belum memiliki kerja sama resmi dengan institusi pertahanan atau militer mana pun.
             Bagian ini menggambarkan arah dan aspirasi jangka panjang perusahaan, bukan kemitraan yang
             sudah berjalan.
@@ -524,7 +524,7 @@ export default function Home() {
           <h2 className="section-title">Company Values</h2>
           <div className="divider" />
           <p className="section-lead">
-            Ketujuh prinsip ini adalah cara kami menjaga filosofi N-1 tetap hidup dalam setiap keputusan
+            Ketujuh prinsip ini adalah cara kami menjaga filosofi N⁻¹ tetap hidup dalam setiap keputusan
             — termasuk keputusan untuk tidak pernah menyebut sebuah sistem sebagai &ldquo;selesai&rdquo;.
           </p>
 
@@ -616,7 +616,7 @@ export default function Home() {
             menuju teknologi bangsa di masa depan.
           </h2>
           <p>
-            N-1 Labs adalah perusahaan teknologi AI asal Semarang yang membangun AI Agent, sistem bisnis,
+            N⁻¹ Labs adalah perusahaan teknologi AI asal Semarang yang membangun AI Agent, sistem bisnis,
             dan produk digital sebagai fondasi menuju kapabilitas yang lebih besar: AI infrastructure, AI
             research, dan pada akhirnya, teknologi AI Indonesia yang mandiri.
           </p>
@@ -638,7 +638,7 @@ export default function Home() {
 
           <div className="closing-contact">
             <div>
-              <b>N-1 Labs</b>
+              <b>N⁻¹ Labs</b>
               <span>Artificial Intelligence &amp; Technology Company</span>
             </div>
             <div>
@@ -673,11 +673,11 @@ export default function Home() {
         </div>
         <div className="container">
           <a className="brand" href="#top">
-            <Image src={withBasePath("/logo.png")} alt="N-1 Labs" width={26} height={26} />
-            N-1 LABS
+            <Image src={withBasePath("/logo.png")} alt="N⁻¹ Labs" width={26} height={26} />
+            N⁻¹ LABS
           </a>
-          <span className="footer-tagline">N-1 · always one step from finished.</span>
-          <span>© 2026 N-1 Labs. All rights reserved.</span>
+          <span className="footer-tagline">N⁻¹ · always one step from finished.</span>
+          <span>© 2026 N⁻¹ Labs. All rights reserved.</span>
         </div>
       </footer>
 
