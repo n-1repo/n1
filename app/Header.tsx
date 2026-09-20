@@ -38,7 +38,7 @@ export default function Header() {
       <div className="container">
         <a className="brand" href="#top">
           <Image src={withBasePath("/logo.png")} alt="N-1 Labs" width={34} height={34} priority />
-          N-1&nbsp;LABS
+          N⁻¹&nbsp;LABS
         </a>
 
         <nav>
