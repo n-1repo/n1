@@ -1,7 +1,10 @@
 import Image from "next/image";
+import { Playfair_Display } from "next/font/google";
 import Header from "./Header";
 import Portfolio from "./Portfolio";
 import { withBasePath } from "./base-path";
+
+const playfairDisplay = Playfair_Display({ subsets: ["latin"], weight: ["400", "700", "800"] });
 import {
   contact,
   identity,
@@ -126,7 +129,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="philosophy">
+      <section id="philosophy" className={playfairDisplay.className}>
         <div className="container">
           <div className="kicker">00 · Filosofi</div>
           <h2 className="section-title">N-1: Selalu Satu Langkah Sebelum Selesai</h2>
