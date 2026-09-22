@@ -1531,7 +1531,7 @@ section:last-of-type {
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .support-chat-field input:focus-visible {
@@ -1700,7 +1700,7 @@ section:last-of-type {
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .support-chat-input-row input:focus-visible {
