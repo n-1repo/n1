@@ -1622,6 +1622,11 @@ section:last-of-type {
   gap: 4px;
 }
 
+.support-chat-typing-inline {
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
 .support-chat-typing span {
   width: 6px;
   height: 6px;

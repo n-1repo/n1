@@ -19,6 +19,8 @@ const HEARTBEAT_INTERVAL_MS = 2 * 60 * 1000;
 const EXPIRY_CHECK_INTERVAL_MS = 60 * 1000;
 const EXPIRY_MS = 60 * 60 * 1000;
 const BOT_REPLY_DELAY_MS = 5000;
+const REVEAL_WORD_DELAY_MS = 35;
+const REVEAL_WORD_JITTER_MS = 45;
 
 function newId(): string {
   return typeof crypto !== "undefined" && "randomUUID" in crypto
@@ -32,6 +34,14 @@ function createMessage(
   quickReplies?: FaqQuickReply[],
 ): ChatMessage {
   return { id: newId(), sender, text, timestamp: Date.now(), quickReplies };
+}
+
+function tokenizeForReveal(text: string): string[] {
+  return text.match(/\S+|\s+/g) ?? [];
+}
+
+function prefersReducedMotion(): boolean {
+  return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
 function CloseIcon() {
@@ -59,8 +69,11 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
     typeof window === "undefined" ? null : loadSession(),
   );
   const [isTyping, setIsTyping] = useState(false);
+  const [revealingMessageId, setRevealingMessageId] = useState<string | null>(null);
+  const [revealedText, setRevealedText] = useState("");
   const sessionRef = useRef<ChatSession | null>(null);
   const replyTimeoutRef = useRef<number | null>(null);
+  const revealTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     sessionRef.current = session;
@@ -69,6 +82,7 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
   useEffect(() => {
     return () => {
       if (replyTimeoutRef.current) window.clearTimeout(replyTimeoutRef.current);
+      if (revealTimeoutRef.current) window.clearTimeout(revealTimeoutRef.current);
     };
   }, []);
 
@@ -107,7 +121,58 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
       window.clearTimeout(replyTimeoutRef.current);
       replyTimeoutRef.current = null;
     }
+    if (revealTimeoutRef.current) {
+      window.clearTimeout(revealTimeoutRef.current);
+      revealTimeoutRef.current = null;
+    }
     setIsTyping(false);
+    setRevealingMessageId(null);
+    setRevealedText("");
+  }
+
+  function revealMessage(message: ChatMessage) {
+    if (prefersReducedMotion()) {
+      setIsTyping(false);
+      setRevealingMessageId(null);
+      setRevealedText("");
+      return;
+    }
+
+    const tokens = tokenizeForReveal(message.text);
+    if (tokens.length === 0) {
+      setIsTyping(false);
+      setRevealingMessageId(null);
+      setRevealedText("");
+      return;
+    }
+
+    setRevealingMessageId(message.id);
+    let buffer = "";
+    let index = 0;
+
+    function tick() {
+      buffer += tokens[index];
+      index += 1;
+      while (index < tokens.length && /^\s+$/.test(tokens[index])) {
+        buffer += tokens[index];
+        index += 1;
+      }
+      setRevealedText(buffer);
+
+      if (index >= tokens.length) {
+        revealTimeoutRef.current = null;
+        setIsTyping(false);
+        setRevealingMessageId(null);
+        setRevealedText("");
+        return;
+      }
+      revealTimeoutRef.current = window.setTimeout(
+        tick,
+        REVEAL_WORD_DELAY_MS + Math.random() * REVEAL_WORD_JITTER_MS,
+      );
+    }
+
+    tick();
   }
 
   function scheduleBotReply(ticketId: string, botMessage: ChatMessage) {
@@ -115,9 +180,9 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
     setIsTyping(true);
     replyTimeoutRef.current = window.setTimeout(() => {
       replyTimeoutRef.current = null;
-      setIsTyping(false);
       addMessage(ticketId, "bot", botMessage.text);
       appendMessages(botMessage);
+      revealMessage(botMessage);
     }, BOT_REPLY_DELAY_MS);
   }
 
@@ -209,6 +274,8 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
           ticketId={session.ticketId}
           messages={session.messages}
           isTyping={isTyping}
+          revealingMessageId={revealingMessageId}
+          revealedText={revealedText}
           onSend={handleSend}
           onQuickReply={handleQuickReply}
         />

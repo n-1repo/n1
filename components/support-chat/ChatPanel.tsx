@@ -7,18 +7,28 @@ type ChatPanelProps = {
   ticketId: string;
   messages: ChatMessage[];
   isTyping: boolean;
+  revealingMessageId: string | null;
+  revealedText: string;
   onSend: (text: string) => void;
   onQuickReply: (reply: FaqQuickReply) => void;
 };
 
-export default function ChatPanel({ ticketId, messages, isTyping, onSend, onQuickReply }: ChatPanelProps) {
+export default function ChatPanel({
+  ticketId,
+  messages,
+  isTyping,
+  revealingMessageId,
+  revealedText,
+  onSend,
+  onQuickReply,
+}: ChatPanelProps) {
   const [draft, setDraft] = useState("");
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const node = listRef.current;
     if (node) node.scrollTop = node.scrollHeight;
-  }, [messages, isTyping]);
+  }, [messages, isTyping, revealedText]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -36,15 +46,25 @@ export default function ChatPanel({ ticketId, messages, isTyping, onSend, onQuic
     <div className="support-chat-panel-body">
       <p className="support-chat-ticket">Tiket: {ticketId}</p>
       <div className="support-chat-messages" ref={listRef} aria-live="polite">
-        {messages.map((message) => (
-          <div
-            key={message.id}
-            className={`support-chat-bubble support-chat-bubble-${message.sender}`}
-          >
-            {message.text}
-          </div>
-        ))}
-        {isTyping && (
+        {messages.map((message) => {
+          const isRevealing = message.id === revealingMessageId;
+          return (
+            <div
+              key={message.id}
+              className={`support-chat-bubble support-chat-bubble-${message.sender}`}
+            >
+              {isRevealing ? revealedText : message.text}
+              {isRevealing && (
+                <span className="support-chat-typing support-chat-typing-inline">
+                  <span />
+                  <span />
+                  <span />
+                </span>
+              )}
+            </div>
+          );
+        })}
+        {isTyping && !revealingMessageId && (
           <div className="support-chat-bubble support-chat-bubble-bot support-chat-typing-bubble">
             <span className="support-chat-typing">
               <span />
