@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "./Header";
 import Portfolio from "./Portfolio";
+import ChatWidget from "@/components/support-chat/ChatWidget";
 import { withBasePath } from "./base-path";
 import {
   contact,
@@ -690,6 +691,8 @@ export default function Home() {
       >
         <WhatsAppIcon size={28} />
       </a>
+
+      <ChatWidget />
     </>
   );
 }
