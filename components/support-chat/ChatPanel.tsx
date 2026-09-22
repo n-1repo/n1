@@ -6,29 +6,31 @@ import type { ChatMessage, FaqQuickReply } from "@/lib/support-chat/types";
 type ChatPanelProps = {
   ticketId: string;
   messages: ChatMessage[];
+  isTyping: boolean;
   onSend: (text: string) => void;
   onQuickReply: (reply: FaqQuickReply) => void;
 };
 
-export default function ChatPanel({ ticketId, messages, onSend, onQuickReply }: ChatPanelProps) {
+export default function ChatPanel({ ticketId, messages, isTyping, onSend, onQuickReply }: ChatPanelProps) {
   const [draft, setDraft] = useState("");
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const node = listRef.current;
     if (node) node.scrollTop = node.scrollHeight;
-  }, [messages]);
+  }, [messages, isTyping]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = draft.trim();
-    if (!trimmed) return;
+    if (!trimmed || isTyping) return;
     onSend(trimmed);
     setDraft("");
   }
 
-  const lastQuickReplies = [...messages].reverse().find((message) => message.quickReplies?.length)
-    ?.quickReplies;
+  const lastQuickReplies = isTyping
+    ? undefined
+    : [...messages].reverse().find((message) => message.quickReplies?.length)?.quickReplies;
 
   return (
     <div className="support-chat-panel-body">
@@ -42,6 +44,15 @@ export default function ChatPanel({ ticketId, messages, onSend, onQuickReply }: 
             {message.text}
           </div>
         ))}
+        {isTyping && (
+          <div className="support-chat-bubble support-chat-bubble-bot support-chat-typing-bubble">
+            <span className="support-chat-typing">
+              <span />
+              <span />
+              <span />
+            </span>
+          </div>
+        )}
       </div>
       {lastQuickReplies && lastQuickReplies.length > 0 && (
         <div className="support-chat-quick-replies">
@@ -65,8 +76,13 @@ export default function ChatPanel({ ticketId, messages, onSend, onQuickReply }: 
           placeholder="Ketik pesan..."
           aria-label="Ketik pesan"
           maxLength={500}
+          disabled={isTyping}
         />
-        <button type="submit" className="btn btn-primary support-chat-send" disabled={!draft.trim()}>
+        <button
+          type="submit"
+          className="btn btn-primary support-chat-send"
+          disabled={!draft.trim() || isTyping}
+        >
           Kirim
         </button>
       </form>

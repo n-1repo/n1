@@ -18,6 +18,7 @@ import ChatPanel from "./ChatPanel";
 const HEARTBEAT_INTERVAL_MS = 2 * 60 * 1000;
 const EXPIRY_CHECK_INTERVAL_MS = 60 * 1000;
 const EXPIRY_MS = 60 * 60 * 1000;
+const BOT_REPLY_DELAY_MS = 5000;
 
 function newId(): string {
   return typeof crypto !== "undefined" && "randomUUID" in crypto
@@ -57,17 +58,26 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
   const [session, setSession] = useState<ChatSession | null>(() =>
     typeof window === "undefined" ? null : loadSession(),
   );
+  const [isTyping, setIsTyping] = useState(false);
   const sessionRef = useRef<ChatSession | null>(null);
+  const replyTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     sessionRef.current = session;
   }, [session]);
 
   useEffect(() => {
+    return () => {
+      if (replyTimeoutRef.current) window.clearTimeout(replyTimeoutRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
     const interval = window.setInterval(() => {
       const current = sessionRef.current;
       if (!current) return;
       if (Date.now() - current.lastActivityAt > EXPIRY_MS) {
+        clearPendingReply();
         closeTicket(current.ticketId, "expired");
         clearSession();
         setSession(null);
@@ -92,23 +102,44 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
     });
   }
 
+  function clearPendingReply() {
+    if (replyTimeoutRef.current) {
+      window.clearTimeout(replyTimeoutRef.current);
+      replyTimeoutRef.current = null;
+    }
+    setIsTyping(false);
+  }
+
+  function scheduleBotReply(ticketId: string, botMessage: ChatMessage) {
+    clearPendingReply();
+    setIsTyping(true);
+    replyTimeoutRef.current = window.setTimeout(() => {
+      replyTimeoutRef.current = null;
+      setIsTyping(false);
+      addMessage(ticketId, "bot", botMessage.text);
+      appendMessages(botMessage);
+    }, BOT_REPLY_DELAY_MS);
+  }
+
   function handleStart(visitor: Visitor, honeypot: string) {
     const newTicketId = generateTicketId();
+    const newSession = touchSession({
+      ticketId: newTicketId,
+      visitor,
+      messages: [],
+      lastActivityAt: Date.now(),
+    });
+    saveSession(newSession);
+    setSession(newSession);
+    createTicket(newTicketId, visitor.name, visitor.email, visitor.phone, honeypot);
+
     const welcomeEntry = findFaqById(faqEntries, WELCOME_ENTRY_ID);
     const welcomeMessage = createMessage(
       "bot",
       welcomeEntry?.answer ?? "Halo! Ada yang bisa kami bantu?",
       welcomeEntry?.quickReplies,
     );
-    const newSession = touchSession({
-      ticketId: newTicketId,
-      visitor,
-      messages: [welcomeMessage],
-      lastActivityAt: Date.now(),
-    });
-    saveSession(newSession);
-    setSession(newSession);
-    createTicket(newTicketId, visitor.name, visitor.email, visitor.phone, honeypot);
+    scheduleBotReply(newTicketId, welcomeMessage);
   }
 
   function handleSend(text: string) {
@@ -116,14 +147,13 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
     if (!current) return;
     const visitorMessage = createMessage("visitor", text);
     addMessage(current.ticketId, "visitor", text);
+    appendMessages(visitorMessage);
 
     const match = matchFaq(text, faqEntries);
     const botMessage = match
       ? createMessage("bot", match.entry.answer, match.entry.quickReplies)
       : createMessage("bot", FALLBACK_MESSAGE, findFaqById(faqEntries, WELCOME_ENTRY_ID)?.quickReplies);
-    addMessage(current.ticketId, "bot", botMessage.text);
-
-    appendMessages(visitorMessage, botMessage);
+    scheduleBotReply(current.ticketId, botMessage);
   }
 
   function handleQuickReply(reply: FaqQuickReply) {
@@ -131,19 +161,19 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
     if (!current) return;
     const visitorMessage = createMessage("visitor", reply.label);
     addMessage(current.ticketId, "visitor", reply.label);
+    appendMessages(visitorMessage);
 
     const entry = findFaqById(faqEntries, reply.targetId);
     const botMessage = entry
       ? createMessage("bot", entry.answer, entry.quickReplies)
       : createMessage("bot", FALLBACK_MESSAGE);
-    addMessage(current.ticketId, "bot", botMessage.text);
-
-    appendMessages(visitorMessage, botMessage);
+    scheduleBotReply(current.ticketId, botMessage);
   }
 
   function handleEndConversation() {
     const current = sessionRef.current;
     if (!current) return;
+    clearPendingReply();
     closeTicket(current.ticketId, "visitor_closed");
     clearSession();
     setSession(null);
@@ -178,6 +208,7 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
         <ChatPanel
           ticketId={session.ticketId}
           messages={session.messages}
+          isTyping={isTyping}
           onSend={handleSend}
           onQuickReply={handleQuickReply}
         />

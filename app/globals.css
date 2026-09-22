@@ -1612,6 +1612,45 @@ section:last-of-type {
   font-size: 12px;
 }
 
+.support-chat-typing-bubble {
+  padding: 10px 14px;
+}
+
+.support-chat-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.support-chat-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  animation: support-chat-typing-bounce 1.2s infinite ease-in-out;
+}
+
+.support-chat-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.support-chat-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes support-chat-typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
 .support-chat-quick-replies {
   display: flex;
   flex-wrap: wrap;
