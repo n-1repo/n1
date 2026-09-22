@@ -1,7 +1,8 @@
 import { normalizeText, tokenize } from "./normalize";
 import type { FaqEntry } from "./types";
 
-const MATCH_THRESHOLD = 2;
+const MATCH_THRESHOLD = 1;
+const MIN_SUBSTRING_KEYWORD_LENGTH = 4;
 
 function scoreEntry(normalizedInput: string, inputTokens: Set<string>, entry: FaqEntry): number {
   let score = 0;
@@ -13,8 +14,12 @@ function scoreEntry(normalizedInput: string, inputTokens: Set<string>, entry: Fa
       if (normalizedInput.includes(normalizedKeyword)) {
         score += keywordTokens.length * 2;
       }
-    } else if (inputTokens.has(normalizedKeyword)) {
-      score += 1;
+    } else {
+      const matched =
+        normalizedKeyword.length >= MIN_SUBSTRING_KEYWORD_LENGTH
+          ? normalizedInput.includes(normalizedKeyword)
+          : inputTokens.has(normalizedKeyword);
+      if (matched) score += 1;
     }
   }
   return score;
