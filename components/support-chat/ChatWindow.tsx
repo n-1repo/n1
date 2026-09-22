@@ -18,9 +18,28 @@ import ChatPanel from "./ChatPanel";
 const HEARTBEAT_INTERVAL_MS = 2 * 60 * 1000;
 const EXPIRY_CHECK_INTERVAL_MS = 60 * 1000;
 const EXPIRY_MS = 60 * 60 * 1000;
-const BOT_REPLY_DELAY_MS = 5000;
 const REVEAL_WORD_DELAY_MS = 35;
 const REVEAL_WORD_JITTER_MS = 45;
+
+const THINKING_DELAY_SHORT_MS = 500;
+const THINKING_DELAY_MEDIUM_MIN_MS = 1000;
+const THINKING_DELAY_MEDIUM_MAX_MS = 1500;
+const THINKING_DELAY_LONG_MIN_MS = 3000;
+const THINKING_DELAY_LONG_MAX_MS = 5000;
+const SHORT_WORD_LIMIT = 8;
+const MEDIUM_WORD_LIMIT = 40;
+const LONG_WORD_LIMIT = 120;
+
+function computeThinkingDelay(text: string): number {
+  const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
+  if (wordCount <= SHORT_WORD_LIMIT) return THINKING_DELAY_SHORT_MS;
+  if (wordCount <= MEDIUM_WORD_LIMIT) {
+    const ratio = (wordCount - SHORT_WORD_LIMIT) / (MEDIUM_WORD_LIMIT - SHORT_WORD_LIMIT);
+    return THINKING_DELAY_MEDIUM_MIN_MS + ratio * (THINKING_DELAY_MEDIUM_MAX_MS - THINKING_DELAY_MEDIUM_MIN_MS);
+  }
+  const ratio = Math.min(1, (wordCount - MEDIUM_WORD_LIMIT) / (LONG_WORD_LIMIT - MEDIUM_WORD_LIMIT));
+  return THINKING_DELAY_LONG_MIN_MS + ratio * (THINKING_DELAY_LONG_MAX_MS - THINKING_DELAY_LONG_MIN_MS);
+}
 
 function newId(): string {
   return typeof crypto !== "undefined" && "randomUUID" in crypto
@@ -183,7 +202,7 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
       addMessage(ticketId, "bot", botMessage.text);
       appendMessages(botMessage);
       revealMessage(botMessage);
-    }, BOT_REPLY_DELAY_MS);
+    }, computeThinkingDelay(botMessage.text));
   }
 
   function handleStart(visitor: Visitor, honeypot: string) {
