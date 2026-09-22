@@ -163,6 +163,22 @@ export const faqEntries: FaqEntry[] = [
       "Baik, pesan Anda sudah tercatat di tiket ini dan tim kami akan menghubungi Anda kembali. Anda juga bisa langsung menghubungi kami lewat WhatsApp atau email di bawah ini sambil menunggu.",
     quickReplies: [{ label: "Lihat kontak", targetId: "contact" }],
   },
+  {
+    id: "thanks",
+    intent: "ucapan-terima-kasih",
+    keywords: [
+      "terima kasih",
+      "makasih",
+      "mksh",
+      "thanks",
+      "thank you",
+      "trims",
+      "tengkyu",
+    ],
+    question: "Terima kasih",
+    answer: "Sama-sama! Senang bisa membantu. Kalau ada pertanyaan lain, jangan ragu untuk bertanya ya.",
+    quickReplies: [{ label: "Hubungi tim", targetId: "contact" }],
+  },
 ];
 
 export const FALLBACK_MESSAGE =
