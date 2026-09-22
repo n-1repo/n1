@@ -1,9 +1,19 @@
-import { contact, identity, missionPillars } from "@/app/content";
+import { contact, identity, missionPillars, techDomains, projects, values } from "@/app/content";
 import type { FaqEntry } from "@/lib/support-chat/types";
 
 const identityValue = (label: string) => identity.find((item) => item.label === label)?.value ?? "";
 
 const servicesSummary = missionPillars.map((pillar) => `${pillar.title}: ${pillar.body}`).join("\n");
+
+const pillarTitles = missionPillars.map((pillar) => pillar.title.replace(/^\d+\.\s*/, "")).join(", ");
+
+const techDomainsSummary = techDomains
+  .map((domain) => `${domain.name}: ${domain.items.join(", ")}`)
+  .join("\n");
+
+const projectsSummary = projects.map((project) => `${project.num}. ${project.title} — ${project.position}`).join("\n");
+
+const valuesSummary = values.map((value) => `${value.title}: ${value.body}`).join("\n");
 
 export const WELCOME_ENTRY_ID = "greeting";
 export const ESCALATION_ENTRY_ID = "talk-human";
@@ -42,6 +52,7 @@ export const faqEntries: FaqEntry[] = [
     ].join("\n\n"),
     quickReplies: [
       { label: "Layanan kami", targetId: "services" },
+      { label: "Nilai kami", targetId: "values" },
       { label: "Lokasi kantor", targetId: "location" },
       { label: "Hubungi tim", targetId: "contact" },
     ],
@@ -54,6 +65,8 @@ export const faqEntries: FaqEntry[] = [
     answer: `Berikut area kerja kami:\n\n${servicesSummary}`,
     quickReplies: [
       { label: "Bagaimana proses kerjanya?", targetId: "process" },
+      { label: "Domain teknologi", targetId: "tech-domains" },
+      { label: "Portofolio", targetId: "portfolio" },
       { label: "Hubungi tim", targetId: "contact" },
     ],
   },
@@ -62,10 +75,42 @@ export const faqEntries: FaqEntry[] = [
     intent: "proses-kerja",
     keywords: ["proses", "cara kerja", "mulai proyek", "memulai", "workflow", "tahapan"],
     question: "Bagaimana proses kerja N⁻¹ Labs?",
-    answer:
-      "Setiap kebutuhan kami tangani lewat tahapan yang sama dengan fokus kerja kami: develop, integrate, automate, research, build, lalu scale. Detail dan estimasi untuk kebutuhan spesifik Anda paling akurat jika dibahas langsung dengan tim kami.",
+    answer: `Setiap kebutuhan kami tangani lewat tahapan yang sama dengan fokus kerja kami: ${pillarTitles}. Detail dan estimasi untuk kebutuhan spesifik Anda paling akurat jika dibahas langsung dengan tim kami.`,
     quickReplies: [
       { label: "Layanan kami", targetId: "services" },
+      { label: "Hubungi tim", targetId: "contact" },
+    ],
+  },
+  {
+    id: "tech-domains",
+    intent: "domain-teknologi",
+    keywords: ["teknologi", "domain", "ai agent", "llm", "expertise", "keahlian", "kuasai", "stack"],
+    question: "Domain teknologi apa saja yang dikuasai N⁻¹ Labs?",
+    answer: `Domain teknologi yang kami kerjakan:\n\n${techDomainsSummary}`,
+    quickReplies: [
+      { label: "Portofolio", targetId: "portfolio" },
+      { label: "Hubungi tim", targetId: "contact" },
+    ],
+  },
+  {
+    id: "portfolio",
+    intent: "portofolio-proyek",
+    keywords: ["portofolio", "portfolio", "proyek", "project", "karya", "case study"],
+    question: "Apa saja proyek yang pernah dikerjakan N⁻¹ Labs?",
+    answer: `Beberapa proyek yang pernah kami kerjakan:\n\n${projectsSummary}`,
+    quickReplies: [
+      { label: "Layanan kami", targetId: "services" },
+      { label: "Hubungi tim", targetId: "contact" },
+    ],
+  },
+  {
+    id: "values",
+    intent: "nilai-perusahaan",
+    keywords: ["nilai", "nilai perusahaan", "values", "prinsip", "budaya kerja", "budaya", "culture"],
+    question: "Apa nilai-nilai N⁻¹ Labs?",
+    answer: `Nilai-nilai yang kami pegang:\n\n${valuesSummary}`,
+    quickReplies: [
+      { label: "Tentang perusahaan", targetId: "about" },
       { label: "Hubungi tim", targetId: "contact" },
     ],
   },
