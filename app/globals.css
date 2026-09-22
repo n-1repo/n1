@@ -1478,6 +1478,13 @@ section:last-of-type {
   box-shadow: var(--shadow);
 }
 
+.support-chat-loading {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .support-chat-header {
   display: flex;
   align-items: center;
